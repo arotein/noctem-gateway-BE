@@ -22,15 +22,30 @@ spring:
           uri: lb://menu-service
           predicates:
             - Path=/api/menu-service/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowed-origin-patterns:
+              - "*"
+            exposed-headers:
+              - "*"
+            allowed-headers:
+              - "*"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
     config:
       enabled: false
 
 management:
-  #  endpoint:
-  #    metrics:
-  #      enabled: true
-  #    prometheus:
-  #      enabled: true
   endpoints:
     web:
       base-path: /api/gateway-service/actuator
