@@ -23,7 +23,7 @@ spring:
           predicates:
             - Path=/api/menu-service/**
       default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE # header 의 multi-value 설정
       globalcors:
         add-to-simple-url-handler-mapping: true
         cors-configurations:
