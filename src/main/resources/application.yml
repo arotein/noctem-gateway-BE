@@ -26,6 +26,10 @@ spring:
           uri: lb://purchase-service
           predicates:
             - Path=/api/purchase-service/**
+        - id: store-service
+          uri: lb://store-service
+          predicates:
+            - Path=/api/store-service/**
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE # header 의 multi-value 설정
       globalcors:
