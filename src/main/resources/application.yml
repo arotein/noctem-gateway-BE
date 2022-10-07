@@ -30,6 +30,10 @@ spring:
           uri: lb://store-service
           predicates:
             - Path=/api/store-service/**
+        - id: admin-service
+          uri: lb://admin-service
+          predicates:
+            - Path=/api/admin-service/**
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE # header 의 multi-value 설정
       globalcors:
