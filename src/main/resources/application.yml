@@ -49,6 +49,7 @@ spring:
               - PUT
               - PATCH
               - DELETE
+              - HEAD
               - OPTIONS
     config:
       enabled: false
