@@ -13,7 +13,7 @@ jib {
 		}
 	}
 	to {
-		image = "arotein/noctem-gateway"
+		image = System.getenv("DOCKERHUB_IMG_GATEWAY")
 		tags = [System.getenv("IMG_TAG")]
 		auth {
 			username = System.getenv("DOCKERHUB_ID")
@@ -21,7 +21,6 @@ jib {
 		}
 	}
 	container {
-		volumes = ["/tmp"]
 		environment = [
 				"NOCTEM_JWT_SIGNER" : System.getenv("NOCTEM_JWT_SIGNER")
 		]
