@@ -14,6 +14,7 @@ spring:
   cloud:
     gateway:
       routes:
+        # 서비스
         - id: user-service
           uri: lb://user-service
           predicates:
@@ -34,10 +35,11 @@ spring:
           uri: lb://admin-service
           predicates:
             - Path=/api/admin-service/**
-        - id: alert-service
-          uri: lb://alert-service
+        # 서버
+        - id: alert-server
+          uri: lb://alert-server
           predicates:
-            - Path=/api/alert-service/**
+            - Path=/sse/alert-server/**
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE # header 의 multi-value 설정
       globalcors:
